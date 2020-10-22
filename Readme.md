@@ -21,6 +21,46 @@ same range (0-1023), we can simply pass the value out as-is.
 
 # Elevator Trim
 
-The trim control is implemented with a 30-step per rotation mechanical rotary encoder connected to digital pins 2 & 3.
+The trim control is implemented with a mechanical rotary encoder connected to digital pins 2 & 3. The one I used was 30 steps per rotation.
 
 For each step of the encoder, the joystick axis value is incremented or decremented by a configurable value, to allow you to configure how fast the trim moves in the sim.
+
+# Schematic
+
+(Note: You may have to expand your browser to see the ASCII art image below)
+
+```
+         +------------------------------------------------------------------------------------+
+         |                                                                                    |
+         |   +-----------------------------------------------------------------------+        |
+         |   |                                                                       |        |
+         |   |                                                                       |        |
+         |   |                                                                       |        |
+         |   |                                                                       |        |
+         |   | +------------------+         +-------------------------------------+  |        |
+         |   | |                  |         |                                     +--+        |
+         |   | |                  |      +--+      Linear Potentiometer Throttle  |           |
+   + + + | + | | + + + + +        |      |  |                                     +-----------+
+   | | | | | | | | | | | |        |      |  +-------------------------------------+           |
++--+-+-+-+-+-+-+-+-+-+-+-+---+    |      |                                                    |
+|  R G R V A A A A 1 1 1 1   |    |      |                                                    |
+|  A N S C 3 2 1 0 5 4 6 0   |    +---------------------------------------------------+       |
+|  W D T C                   |           |                                            |       |
+|                            |           |  +-------------------------------------+   |       |
+|                            |           |  |                                     +---+       |
+|      G G                   |           +--+       Linear Potentiometer Mixture  |           |
+|  T R N N                   |           |  |                                     +-----------+
+|  X X D D 2 3 4 5 6 7 8 9   |           |  +-------------------------------------+           |
++--+-+-+-+-+-+-+-+-+-+-+-+---+           |                                                    |
+   | | | | | | | | | | | |               |            +---------------+                       |
+   + + + | | | + + + + + +               |           G|               | VCC                   |
+         | | |                           +------------+     Trim      +-----------------------+
+         | | |                           |            |    Rotary     |
+         | | |                           |            |    Encoder    |
+         +-------------------------------+            |               |
+           | |                                        +---------------+
+           | |                                             |A   |B
+           | +---------------------------------------------+    |
+           +----------------------------------------------------+
+
+```
