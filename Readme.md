@@ -64,3 +64,13 @@ For each step of the encoder, the joystick axis value is incremented or decremen
            +----------------------------------------------------+
 
 ```
+
+# 3D Printed Enclosure
+
+For mine, I used the following two designs from Thingiverse, then drilled four
+holes in lid of the throttle box and bottom of the trim housing and then screwed 
+them together. You'll need one more through hole to run the wires from the rotary
+encoder to the Arduino in the lower box.
+
+* https://www.thingiverse.com/thing:4588711
+* https://www.thingiverse.com/thing:4582829
